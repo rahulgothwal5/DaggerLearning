@@ -29,6 +29,10 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var notificationService: NotificationService
 
+    @EmailNotificationServiceQualifier
+    @Inject
+    lateinit var notificationService2: NotificationService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
