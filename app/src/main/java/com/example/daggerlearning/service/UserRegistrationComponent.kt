@@ -4,8 +4,9 @@ import com.example.daggerlearning.MainActivity
 import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
-
+@Singleton
 @Component(modules = [UserRepositoryModule::class,NotificationServiceModule::class])
 interface UserRegistrationServiceComponent {
 
