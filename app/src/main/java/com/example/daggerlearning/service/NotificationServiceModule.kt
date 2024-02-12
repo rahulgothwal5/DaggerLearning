@@ -13,8 +13,8 @@ class NotificationServiceModule {
 
     @PhoneNotificationServiceQualifier
     @Provides
-    fun getPhoneNotificationService(): NotificationService {
-        return PhoneNotificationService()
+    fun getPhoneNotificationService(retryCount :Int): NotificationService {
+        return PhoneNotificationService(retryCount)
     }
 
     @EmailNotificationServiceQualifier

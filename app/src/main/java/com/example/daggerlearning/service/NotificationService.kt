@@ -15,8 +15,8 @@ class EmailNotificationService @Inject constructor() : NotificationService {
     }
 }
 
-class PhoneNotificationService : NotificationService {
+class PhoneNotificationService(private val retryCount:Int) : NotificationService {
     override fun send(phone: String, message: String, body: String) {
-        Log.d(DAGGER_LEARNING, "Message send to $phone with message : $message")
+        Log.d(DAGGER_LEARNING, "Message send to $phone with message : $message $retryCount")
     }
 }

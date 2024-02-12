@@ -14,6 +14,7 @@ import com.example.daggerlearning.service.DaggerUserRegistrationServiceComponent
 import com.example.daggerlearning.service.EmailNotificationService
 import com.example.daggerlearning.service.EmailNotificationServiceQualifier
 import com.example.daggerlearning.service.NotificationService
+import com.example.daggerlearning.service.NotificationServiceModule
 import com.example.daggerlearning.service.UserRegistrationService
 import com.example.daggerlearning.service.UserRegistrationServiceComponent
 import com.example.daggerlearning.ui.theme.DaggerLearningTheme
@@ -31,7 +32,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val component = DaggerUserRegistrationServiceComponent.builder().build()
+//        val component = DaggerUserRegistrationServiceComponent.builder().notificationServiceModule(
+//            NotificationServiceModule(2)
+//        ).build()
+
+        val component = DaggerUserRegistrationServiceComponent.factory().create(3)
+
         component.inject(this)
         userRegistrationService.registerUser("rahul.gothwal@gmail.com","112233445")
 
