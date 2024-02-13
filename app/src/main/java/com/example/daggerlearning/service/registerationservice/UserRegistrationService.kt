@@ -1,5 +1,8 @@
-package com.example.daggerlearning.service
+package com.example.daggerlearning.service.registerationservice
 
+import com.example.daggerlearning.service.notificationservice.NotificationService
+import com.example.daggerlearning.service.notificationservice.PhoneNotificationServiceQualifier
+import com.example.daggerlearning.service.userrepository.UserRepository
 import javax.inject.Inject
 
 class UserRegistrationService @Inject constructor(
