@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val appComponent = (application as DaggerLearningApp).appComponent
-        val userRegistrationServiceComponent = appComponent.getUserRegistrationServiceComponentFactory().create(3)
+        val userRegistrationServiceComponent = appComponent.getUserRegistrationServiceComponentBuilder().retryCount(3).build()
 
         userRegistrationServiceComponent.inject(this)
         userRegistrationService.registerUser("rahul.gothwal@gmail.com", "112233445")
