@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.daggerlearning.service.notificationservice.EmailNotificationServiceQualifier
 import com.example.daggerlearning.service.notificationservice.NotificationService
-import com.example.daggerlearning.service.registerationservice.DaggerUserRegistrationServiceComponent
 import com.example.daggerlearning.service.registerationservice.UserRegistrationService
 import com.example.daggerlearning.ui.theme.DaggerLearningTheme
 import javax.inject.Inject
@@ -34,7 +33,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val appComponent = (application as DaggerLearningApp).appComponent
-        val userRegistrationServiceComponent = DaggerUserRegistrationServiceComponent.factory().create(3,appComponent)
+        val userRegistrationServiceComponent = appComponent.getUserRegistrationServiceComponentFactory().create(3)
 
         userRegistrationServiceComponent.inject(this)
         userRegistrationService.registerUser("rahul.gothwal@gmail.com", "112233445")
